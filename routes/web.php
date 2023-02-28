@@ -89,7 +89,7 @@ Route::fallback(function(){
     return 'Maaf,Alamat tidak ditemukan';
 });
 
-Route::get('/buku/1', function () { 
+Route::get('/buku/1', function () {  
     return "Buku ke-1"; 
 }); 
 Route::get('/buku/1', function () { 
