@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,7 +90,7 @@ Route::fallback(function(){
     return 'Maaf,Alamat tidak ditemukan';
 });
 
-Route::get('/buku/1', function () {  
+Route::get('/buku/1', function () {   
     return "Buku ke-1"; 
 }); 
 Route::get('/buku/1', function () { 
@@ -116,4 +117,77 @@ Route::get('mahasiswa/andi', function (){
 
 Route::get('mahasiswa/andi', function (){
     echo"Halaman mahasiswa andi";
+});
+
+
+Route::get('/',function () {
+    return view ('welcome');   
+});
+
+Route::get('/home', function () {
+    return view ('halaman_home');   
+});
+
+Route::get('/mahasiswa', function(){
+    return View::make('mahasiswa');
+});
+
+Route::get('/mahasiswa', function(){
+    return view('kampus.mahasiswa');
+});
+
+Route::get('/mahasiswa', function(){
+    return view('kampus.mahasiswa',["mahasiswa01"=>"Maulana sultan"]);
+});
+
+// Route::get('/mahasiswa',function(){
+//     return view('kampus.mahasiswa',
+//     [
+//         "mahasiswa01"=>"indra kenz",
+//         "mahasiswa02"=>"Doni salmanan",
+//         "mahasiswa03"=>"ulfi Rizkia",
+//         "mahasiswa04"=>"Deliana Putri"
+//     ]);
+// });
+
+Route::get('/mahasiswa',function(){   //agar terlihat rapi gunakan seperti ini kalau normalnya seperti diatas
+    $arrmahasiswa=
+    [
+        "mahasiswa01"=>"indra kenz",
+        "mahasiswa02"=>"Doni salmanan",
+        "mahasiswa03"=>"ulfi Rizkia",
+        "mahasiswa04"=>"Deliana Putri"
+    ];
+    return view('kampus.mahasiswa',$arrmahasiswa);
+});
+
+Route::get('/mahasuswa',function(){
+    $arrmahasiswa = ["doni sadikin","Syadwina sahara","Deliana putri","idra kenz"];
+    return view('kampus.mahasiswa',['mahasiswa'=> $arrmahasiswa]);
+});
+
+
+Route::get('/mahasiswa',function(){
+   return view('kampus.mahasiswa')->with('mahasiswa01','Risa lestari'); 
+});
+
+Route::get('/mahasiswa',function(){
+    $arrmahasiswa = ["Doni sadikin","Syadzwina sahara","Deliana putri","indra kenz"];
+return view('kampus.mahasiswa')->with('mahasiswa',$arrmahasiswa);
+});
+
+Route::get('/mahasiswa',function(){ #digunakan lebih singkat
+    return view('kampus.mahaiswa')
+    ->with('mahaiswa01','Doni salmanan')
+    ->with('mahaiswa02','Doni aja')
+    ->with('mahaiswa03','Doni epep');
+});
+
+
+Route::get('/mahasiswa',function(){
+    $mahasiswa01="indra kenz",
+    $mahasiswa02="doni salmanan",
+    $mahasiswa01="ulfi rizkia",
+    $mahasiswa02="deliana putri"
+return view('kampus.mahasiswa',compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
 });
