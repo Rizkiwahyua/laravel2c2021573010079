@@ -140,15 +140,15 @@ Route::get('/mahasiswa', function(){
     return view('kampus.mahasiswa',["mahasiswa01"=>"Maulana sultan"]);
 });
 
-// Route::get('/mahasiswa',function(){
-//     return view('kampus.mahasiswa',
-//     [
-//         "mahasiswa01"=>"indra kenz",
-//         "mahasiswa02"=>"Doni salmanan",
-//         "mahasiswa03"=>"ulfi Rizkia",
-//         "mahasiswa04"=>"Deliana Putri"
-//     ]);
-// });
+Route::get('/mahasiswa',function(){
+    return view('kampus.mahasiswa',
+    [
+        "mahasiswa01"=>"indra kenz",
+        "mahasiswa02"=>"Doni salmanan",
+        "mahasiswa03"=>"ulfi Rizkia",
+        "mahasiswa04"=>"Deliana Putri"
+    ]);
+});
 
 Route::get('/mahasiswa',function(){   //agar terlihat rapi gunakan seperti ini kalau normalnya seperti diatas
     $arrmahasiswa=
@@ -161,7 +161,7 @@ Route::get('/mahasiswa',function(){   //agar terlihat rapi gunakan seperti ini k
     return view('kampus.mahasiswa',$arrmahasiswa);
 });
 
-Route::get('/mahasuswa',function(){
+Route::get('/mahasiswa',function(){
     $arrmahasiswa = ["doni sadikin","Syadwina sahara","Deliana putri","idra kenz"];
     return view('kampus.mahasiswa',['mahasiswa'=> $arrmahasiswa]);
 });
@@ -176,18 +176,16 @@ Route::get('/mahasiswa',function(){
 return view('kampus.mahasiswa')->with('mahasiswa',$arrmahasiswa);
 });
 
-Route::get('/mahasiswa',function(){ #digunakan lebih singkat
-    return view('kampus.mahaiswa')
-    ->with('mahaiswa01','Doni salmanan')
-    ->with('mahaiswa02','Doni aja')
-    ->with('mahaiswa03','Doni epep');
+Route::get('/mahasiswa1',function(){
+    $nama ='john paijo simatupag';
+    $nilai = 75;
+    return view('job3.mahasiswa1',compact('nama','nilai'));
+});
+
+Route::get('/mahasiswa1',function(){
+    $nama = '<u> Elon musk batubara </u>';
+    $nilai = 75;
+    return view('job3.mahasiswa1',compact('nama','nilai'));
 });
 
 
-Route::get('/mahasiswa',function(){
-    $mahasiswa01="indra kenz",
-    $mahasiswa02="doni salmanan",
-    $mahasiswa01="ulfi rizkia",
-    $mahasiswa02="deliana putri"
-return view('kampus.mahasiswa',compact("mahasiswa01","mahasiswa02","mahasiswa03","mahasiswa04"));
-});
