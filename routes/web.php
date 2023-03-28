@@ -31,7 +31,7 @@ Route::get('/dosen', function(){
     return view('dosen')->with('dosen', $arrdosen);
 });
 
-Route::get('/gallery', function(){
+Route::get('/galery', function(){
     return view('galery');
 });
 
