@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,29 +16,10 @@ use Illuminate\Support\Facades\View;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function(){
+//     return view('welcome');
+// });
 
-Route::get('/mahasiswa', function(){
-    $arrmahasiswa = ["luhut panjaitan", "vidlamir putin", "jokowi", "lisa pramata"];
+Route::get('/',[App\Http\Controllers\pageControllers::class,'index']);
 
-    return view('mahasiswa')->with('mahasiswa', $arrmahasiswa);
-});
-
-Route::get('/dosen', function(){
-    $arrdosen = ["maya fitriani, M.M.", "Prof. Silvia Nst, M,farm.", "Dr. Umar Agustinus", "Dr. Syahrial, M.Kom."];
-
-    return view('dosen')->with('dosen', $arrdosen);
-});
-
-Route::get('/galery', function(){
-    return view('galery');
-});
-
-Route::get('admin', function(){
-    return view('admin');
-});
-
-?>
-
+Route::get('/mahasiswa',[App\Http\Controllers\pageControllers::class,'tampil']);
