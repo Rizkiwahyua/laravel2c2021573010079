@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\View;
-
+use App\Http\Controllers\admin\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +14,12 @@ use Illuminate\Support\Facades\View;
 |
 */
 
+Route::get('/',[PageController::class,'index']);
 
-// Route::get('/', function(){
-//     return view('welcome');
-// });
+Route::get('/tampil', [PageController::class,'tampil']);
 
-Route::get('/',[App\Http\Controllers\pageControllers::class,'index']);
+Route::get('/coba-facade', [PageController::class,'cobaFacade']);
 
-Route::get('/mahasiswa',[App\Http\Controllers\pageControllers::class,'tampil']);
+Route::get('coba-class', [PageController::class,'cobaClass']);
+?>
+
